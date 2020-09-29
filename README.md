@@ -2,11 +2,11 @@
 [![](.github/logo.png)](https://github.com/lk-geimfari/secrets.clj)
 
 
-A Clojure library designed to generate secure random numbers for managing secrets
+A Clojure library designed to generate secure random numbers for managing secrets. This project is a 
+Python's `secret` module implementation for Clojure, based on Java standard library.
 
 The secrets module is used for generating cryptographically strong random numbers suitable for managing data such 
 as passwords, account authentication, security tokens, and related secrets.
-
 
 ## Usage
  
