@@ -1,5 +1,6 @@
 (defproject secrets "0.1.0"
   :description "A Clojure library designed to generate secure random numbers for managing secrets"
+  :url "https://github.com/lk-geimfari/secrets.clj"
   :license {:name "MIT License"}
   :main secrets.core
   :plugins [[lein-cljfmt "0.6.8"]]
