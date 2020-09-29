@@ -11,23 +11,12 @@ as passwords, account authentication, security tokens, and related secrets.
 # Usage
  
 ```clojure
-user=> (secrets/token-hex 16)
-'f9bf78b9a18ce6d46a0cd2b0b86df9da'
+user=> (secrets.core/token-hex 32)
+"2aa5430064918acf140bb423678cef7353f7055597bc61305414c5371106ebef"
 
-user=> (secrets/token-urlsafe 16)
-'Drmhze6EPcv0fN_81Bj-nA'
+user=> (secrets.core/token-urlsafe 32)
+"kfbGVrB6jz6hyOl_2rX9UIHgiop2-rM_jo2XEK7oTj0"
 
-user=> (secrets/token-bytes 16)
-b'\xebr\x17D*t\xae\xd4\xe3S\xb6\xe2\xebP1\x8b'
-```
-
-Other functions:
-
-```clojure
-user=> (secrets/choice [0 4 5 2 1 2 3.3])
-1
-user=> (secrets/randbelow 256)
-122
-user=> (secrets/randbits 26)
-60274314
+user=> (secrets.core/token-bytes 16)
+#object["[B" 0x3b2454e9 "[B@3b2454e9"]
 ```
