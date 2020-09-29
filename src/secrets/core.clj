@@ -1,6 +1,6 @@
 (ns secrets.core
   "A Clojure library designed to generate secure random numbers for managing secrets."
-  (:require [clojure.string :as st])
+  (:require [clojure.string :as string])
   (:import [java.security SecureRandom]
            [java.util UUID]
            [org.apache.commons.codec.binary Base64 Hex]))
@@ -39,6 +39,6 @@
   (-> (String.
        (Base64/encodeBase64
         (get-random-bytes nbytes)))
-      (st/replace "+" "-")
-      (st/replace "/" "_")
-      (st/replace "=" "")))
+      (string/replace "+" "-")
+      (string/replace "/" "_")
+      (string/replace "=" "")))
