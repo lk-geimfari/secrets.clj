@@ -1,5 +1,5 @@
 (ns secrets.core
-  "Generate secure random numbers for managing secrets."
+  "A Clojure library designed to generate secure random numbers for managing secrets."
   (:require [clojure.string :as st])
   (:import [java.security SecureRandom]
            [org.apache.commons.codec.binary Base64 Hex]))
