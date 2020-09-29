@@ -8,7 +8,7 @@ The secrets module is used for generating cryptographically strong random number
 as passwords, account authentication, security tokens, and related secrets.
 
 
-# Usage
+## Usage
  
 ```clojure
 user=> (secrets.core/token-hex 32)
@@ -20,3 +20,6 @@ user=> (secrets.core/token-urlsafe 32)
 user=> (secrets.core/token-bytes 16)
 #object["[B" 0x3b2454e9 "[B@3b2454e9"]
 ```
+
+## License
+MIT License. See [LICENSE](LICENSE) for more information.
