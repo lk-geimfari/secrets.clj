@@ -2,6 +2,7 @@
   "A Clojure library designed to generate secure random numbers for managing secrets."
   (:require [clojure.string :as st])
   (:import [java.security SecureRandom]
+           [java.util UUID]
            [org.apache.commons.codec.binary Base64 Hex]))
 
 (defn- get-random-bytes
@@ -10,6 +11,11 @@
   (let [seed (byte-array nbytes)]
     (.nextBytes
      (SecureRandom.) seed) seed))
+
+(defn uuid4
+  "Return UUID generated using a cryptographically strong pseudo random number generator."
+  []
+  (.toString (UUID/randomUUID)))
 
 (defn token-bytes
   "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,

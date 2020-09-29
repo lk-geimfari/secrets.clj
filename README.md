@@ -21,5 +21,12 @@ user=> (secrets.core/token-bytes 16)
 #object["[B" 0x3b2454e9 "[B@3b2454e9"]
 ```
 
+Additionally, you can generate `UUID4`:
+
+```clojure
+user=> (secrets.core/uuid4)
+"84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
+```
+
 ## License
 MIT License. See [LICENSE](LICENSE) for more information.
