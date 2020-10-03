@@ -1,5 +1,7 @@
 (ns secrets.core
-  "A Clojure library designed to generate secure random numbers for managing secrets."
+  "The secrets module is used for generating cryptographically strong random numbers
+  suitable for managing data such as passwords, account authentication, security tokens,
+  and related secrets."
   (:require [clojure.string :as string])
   (:import [java.security SecureRandom]
            [java.util UUID]
@@ -19,21 +21,20 @@
 (defn token-bytes
   "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,
   a reasonable default is used."
+  ([] (get-random-bytes 32))
+  ([nbytes] (get-random-bytes nbytes)))
+
+(defn- generate-token-hex
   [nbytes]
-  (get-random-bytes nbytes))
+  (String. (Hex/encodeHex ^bytes (get-random-bytes nbytes))))
 
 (defn token-hex
-  "Return a random text string, in hexadecimal. The string has nbytes random bytes, each byte converted
-  to two hex digits. If nbytes is nil or not supplied, a reasonable default is used."
-  [nbytes]
-  (String.
-   (Hex/encodeHex ^bytes
-    (get-random-bytes nbytes))))
+  "Return a random text string, in hexadecimal. The string has nbytes random bytes, each byte
+  converted to two hex digits. If nbytes is nil or not supplied, a reasonable default is used (32)."
+  ([] (generate-token-hex 32))
+  ([nbytes] (generate-token-hex nbytes)))
 
 (defn- generate-urlsafe-token
-  "Return a random URL-safe text string, containing nbytes random bytes. The text is Base64 encoded,
-  so on average each byte results in approximately 1.3 characters. If nbytes is nil or not supplied,
-  a reasonable default is used (32)"
   [nbytes]
   (-> (String.
        (Base64/encodeBase64
@@ -43,6 +44,8 @@
       (string/replace "=" "")))
 
 (defn token-urlsafe
-  "Return a random URL-safe text string, containing nbytes random bytes."
+  "Return a random URL-safe text string, containing nbytes random bytes. The text is Base64 encoded,
+  so on average each byte results in approximately 1.3 characters. If nbytes is nil or not supplied,
+  a reasonable default is used (32)"
   ([] (generate-urlsafe-token 32))
   ([nbytes] (generate-urlsafe-token nbytes)))
