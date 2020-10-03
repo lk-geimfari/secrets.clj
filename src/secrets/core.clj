@@ -8,9 +8,8 @@
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
   [nbytes]
-  (let [seed (byte-array nbytes)]
-    (.nextBytes
-     (SecureRandom.) seed) seed))
+  (let [bytes (byte-array nbytes)]
+    (.nextBytes (SecureRandom.) bytes) bytes))
 
 (defn uuid4
   "Return UUID generated using a cryptographically strong pseudo random number generator."
