@@ -1,4 +1,4 @@
-(defproject secrets.clj "0.1.1"
+(defproject secrets "0.1.1"
   :description "A Clojure library designed to generate secure random numbers for managing secrets"
   :scm {:name "git"
         :url "https://github.com/lk-geimfari/secrets"}
