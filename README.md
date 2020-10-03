@@ -11,20 +11,23 @@ as passwords, account authentication, security tokens, and related secrets.
 ## Usage
  
 ```clojure
-user=> (secrets.core/token-hex 32)
+secrets.core => (token-hex 32)
 "2aa5430064918acf140bb423678cef7353f7055597bc61305414c5371106ebef"
 
-user=> (secrets.core/token-urlsafe 32)
+secrets.core => (token-urlsafe 32)
 "kfbGVrB6jz6hyOl_2rX9UIHgiop2-rM_jo2XEK7oTj0"
 
-user=> (secrets.core/token-bytes 16)
+secrets.core => (token-bytes 16)
 #object["[B" 0x3b2454e9 "[B@3b2454e9"]
+
+secrets.core => (randbelow 100)
+71
 ```
 
 Additionally, you can generate `UUID4`:
 
 ```clojure
-user=> (secrets.core/uuid4)
+secrets.core => (uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
 ```
 
