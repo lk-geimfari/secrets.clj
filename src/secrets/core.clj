@@ -49,3 +49,7 @@
   a reasonable default is used (32)"
   ([] (generate-urlsafe-token 32))
   ([nbytes] (generate-urlsafe-token nbytes)))
+
+(defn randbelow
+  "Return a random int in the range [0, n)."
+  [n] (.nextInt (SecureRandom.) n))
