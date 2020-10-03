@@ -30,10 +30,10 @@
    (Hex/encodeHex ^bytes
     (get-random-bytes nbytes))))
 
-(defn token-urlsafe
+(defn- generate-urlsafe-token
   "Return a random URL-safe text string, containing nbytes random bytes. The text is Base64 encoded,
   so on average each byte results in approximately 1.3 characters. If nbytes is nil or not supplied,
-  a reasonable default is used."
+  a reasonable default is used (32)"
   [nbytes]
   (-> (String.
        (Base64/encodeBase64
@@ -41,3 +41,8 @@
       (string/replace "+" "-")
       (string/replace "/" "_")
       (string/replace "=" "")))
+
+(defn token-urlsafe
+  "Return a random URL-safe text string, containing nbytes random bytes."
+  ([] (generate-urlsafe-token 32))
+  ([nbytes] (generate-urlsafe-token nbytes)))
