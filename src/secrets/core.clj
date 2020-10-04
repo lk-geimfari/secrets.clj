@@ -53,3 +53,11 @@
 (defn randbelow
   "Return a random int in the range [0, n)."
   [n] (.nextInt (SecureRandom.) n))
+
+(defn choice
+  "Return a randomly-chosen element from a non-empty coll."
+  [collection]
+  (when (empty? collection)
+    (do
+      (throw (Exception. "Cannot choose from an empty sequence"))))
+  (nth collection (randbelow (count collection))))

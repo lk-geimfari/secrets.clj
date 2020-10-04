@@ -21,8 +21,14 @@
   (testing "Generate UUID4")
   (is (= (count (uuid4)) 36)))
 
-
 (deftest randbelow-test
   (testing "Generate a random int in the range [0, n)")
   (let [number (randbelow 100)]
     (is (and (> number 0) (< number 100)))))
+
+(deftest choice-test
+  (testing "Choice a random element of coll")
+  (def vector [8 16 32 64 128])
+  (let [chosen (choice vector)]
+    (is (and (>= chosen 8) (<= chosen 128)))
+    (is (thrown? java.lang.Exception (choice [])))))

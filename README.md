@@ -30,6 +30,9 @@ secrets.core => (token-bytes 16)
 
 secrets.core => (randbelow 100)
 71
+
+secrets.core => (choice [8 16 32 64 128])
+8
 ```
 
 Additionally, you can generate `UUID4`:
