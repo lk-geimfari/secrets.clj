@@ -4,7 +4,6 @@
   and related secrets."
   (:require [clojure.string :as string])
   (:import [java.security SecureRandom]
-           [java.util UUID]
            [org.apache.commons.codec.binary Base64 Hex]))
 
 (defn- get-random-bytes
@@ -16,7 +15,7 @@
 (defn uuid4
   "Return UUID generated using a cryptographically strong pseudo random number generator."
   []
-  (.toString (UUID/randomUUID)))
+  (.toString (java.util.UUID/randomUUID)))
 
 (defn token-bytes
   "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,
