@@ -9,7 +9,44 @@ The secrets module is used for generating cryptographically strong random number
 as passwords, account authentication, security tokens, and related secrets.
 
 
-## Usage
+## Recipes and best practices¶
+This section shows recipes and best practices for using secrets to manage a basic level of security.
+
+Generate an eight-character alphanumeric password:
+
+```clojure
+(ns somemodule
+  (:require [secrets.core :as secrets]
+            [secrets.strings :as strings]))
+
+(def alphabet (str strings/ascii-letters strings/digits))
+(defn generate-password [len]
+  (clojure.string/join "" (repeat len (secrets/choice alphabet))))
+```
+Generate an XKCD-style passphrase:
+
+```clojure
+(def words
+  "On standard Linux systems, use a convenient dictionary file.
+  Other platforms may need to provide their own word-list."
+  (-> (slurp "/usr/share/dict/words")
+      (clojure.string/split-lines)))
+
+(defn generate-passphrase [n]
+  (-> (clojure.string/join " " (repeat n (choice words)))
+      (clojure.string/lower-case)))
+```
+
+Generate a hard-to-guess temporary URL containing a security token suitable for password recovery applications:
+
+```clojure
+(ns somens
+  (:require [secrets.core :as secrets]))
+
+(def url (str "https://mydomain.com/reset=" (secrets/token-urlsafe)))
+```
+
+## API
  
 ```clojure
 secrets.core => (token-hex 32)
