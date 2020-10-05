@@ -57,6 +57,5 @@
   "Return a randomly-chosen element from a non-empty coll."
   [collection]
   (when (empty? collection)
-    (do
-      (throw (Exception. "Cannot choose from an empty sequence"))))
+    (throw (Exception. "Cannot choose from an empty sequence")))
   (nth collection (randbelow (count collection))))
