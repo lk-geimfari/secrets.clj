@@ -32,7 +32,7 @@ user=> (secrets.core/uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
 ```
 
-There are a namespace `secrets.strings` with useful constants:
+There is a namespace `secrets.strings` with useful constants:
 
 ```clojure
 user=> secrets.strings/ascii-lowercase
