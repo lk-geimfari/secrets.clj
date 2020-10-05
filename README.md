@@ -48,7 +48,7 @@ user=> (secrets.core/uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
 ```
 
-There are a namespace `secrets.strings` with useful constants:
+There is a namespace `secrets.strings` with useful constants:
 
 ```clojure
 user=> secrets.strings/ascii-lowercase
@@ -127,14 +127,14 @@ Generate a hard-to-guess temporary URL containing a security token suitable for 
 
 (use '[secrets.core :only [token-urlsafe]])
 
-(defn generate-reset-url [n]
+(defn generate-password-recovery-url [n]
   (str "https://mydomain.com/reset=" (token-urlsafe n)))
 ```
 
 the result will be:
 
 ```clojure
-example.security=> (generate-reset-url 32)
+example.security=> (generate-password-recovery-url 32)
 "https://mydomain.com/reset=3kOJuScK1mHyxXWnuMBAUQaIEdsBUluQBR-3Zlvv8XQ"
 ```
 
