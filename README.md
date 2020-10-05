@@ -8,24 +8,68 @@ Python's `secret` module implementation for Clojure, based on Java's standard li
 The secrets module is used for generating cryptographically strong random numbers suitable for managing data such 
 as passwords, account authentication, security tokens, and related secrets.
 
+## API
+ 
+```clojure
+user=> (secrets.core/token-hex 32)
+"2aa5430064918acf140bb423678cef7353f7055597bc61305414c5371106ebef"
 
-## Recipes and best practices¶
+user=> (secrets.core/token-urlsafe 32)
+"kfbGVrB6jz6hyOl_2rX9UIHgiop2-rM_jo2XEK7oTj0"
+
+user=> (secrets.core/token-bytes 16)
+#object["[B" 0x3b2454e9 "[B@3b2454e9"]
+
+user=> (secrets.core/randbelow 100)
+71
+
+user=> (secrets.core/choice [8 16 32 64 128])
+8
+
+user=> (secrets.core/uuid4)
+"84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
+```
+
+There are a namespace `secrets.strings` with useful constants:
+
+```clojure
+user=> secrets.strings/ascii-lowercase
+"abcdefghijklmnopqrstuvwxyz"
+user=> secrets.strings/ascii-uppercase
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+user=> secrets.strings/ascii-letters
+"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+user=> secrets.strings/digits
+"0123456789"
+user=> secrets.strings/hexdigits
+"0123456789abcdefABCDEF"
+user=> secrets.strings/octdigits
+"01234567"
+user=> secrets.strings/punctuation
+"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+```
+
+## Recipes and best practices
 This section shows recipes and best practices for using secrets to manage a basic level of security.
 
 Generate an eight-character alphanumeric password:
 
 ```clojure
 (ns somemodule
-  (:require [secrets.core :as secrets]
-            [secrets.strings :as strings]))
+  (:require [secrets.core]
+            [secrets.strings]))
 
 (def alphabet (str strings/ascii-letters strings/digits))
 (defn generate-password [len]
-  (clojure.string/join "" (repeat len (secrets/choice alphabet))))
+  (clojure.string/join "" (repeat len (secrets.core/choice alphabet))))
 ```
 Generate an XKCD-style passphrase:
 
 ```clojure
+(ns somemodule
+  (:require [secrets.core]
+            [secrets.strings]))
+
 (def words
   "On standard Linux systems, use a convenient dictionary file.
   Other platforms may need to provide their own word-list."
@@ -33,43 +77,17 @@ Generate an XKCD-style passphrase:
       (clojure.string/split-lines)))
 
 (defn generate-passphrase [n]
-  (-> (clojure.string/join " " (repeat n (choice words)))
+  (-> (clojure.string/join " " (repeat n (secrets.core/choice words)))
       (clojure.string/lower-case)))
 ```
 
 Generate a hard-to-guess temporary URL containing a security token suitable for password recovery applications:
 
 ```clojure
-(ns somens
-  (:require [secrets.core :as secrets]))
+(ns somemodule
+  (:require [secrets.core]))
 
-(def url (str "https://mydomain.com/reset=" (secrets/token-urlsafe)))
-```
-
-## API
- 
-```clojure
-secrets.core => (token-hex 32)
-"2aa5430064918acf140bb423678cef7353f7055597bc61305414c5371106ebef"
-
-secrets.core => (token-urlsafe 32)
-"kfbGVrB6jz6hyOl_2rX9UIHgiop2-rM_jo2XEK7oTj0"
-
-secrets.core => (token-bytes 16)
-#object["[B" 0x3b2454e9 "[B@3b2454e9"]
-
-secrets.core => (randbelow 100)
-71
-
-secrets.core => (choice [8 16 32 64 128])
-8
-```
-
-Additionally, you can generate `UUID4`:
-
-```clojure
-secrets.core => (uuid4)
-"84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
+(def url (str "https://mydomain.com/reset=" (secrets.core/token-urlsafe)))
 ```
 
 ## License
