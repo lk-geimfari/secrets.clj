@@ -1,0 +1,27 @@
+name: "Clojure Linter"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+
+      - run: npm ci
+      - run: npm run build
+      - uses: ./
+        with:
+          version: 2020.09.09
+      - name: Run clj-kondo on Ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: clj-kondo --lint src
+      - name: Run clj-kondo on Windows
+        if: matrix.os == 'windows-latest'
+        run: clj-kondo.exe --lint src
