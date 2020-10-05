@@ -55,39 +55,68 @@ This section shows recipes and best practices for using secrets to manage a basi
 Generate an eight-character alphanumeric password:
 
 ```clojure
-(ns somemodule
-  (:require [secrets.core]
-            [secrets.strings]))
+(ns example.security)
 
-(def alphabet (str strings/ascii-letters strings/digits))
-(defn generate-password [len]
-  (clojure.string/join "" (repeat len (secrets.core/choice alphabet))))
+(use '[clojure.string :only [join]])
+(use '[secrets.core :only [choice]])
+(use '[secrets.strings :only [ascii-letters digits]])
+
+(defn generate-password [n]
+  (join "" (repeatedly n #(choice (str ascii-letters digits)))))
+
 ```
+
+the result will be:
+
+```clojure
+example.security=> (generate-password 8)
+"7gHY2N4s"
+```
+
+
 Generate an XKCD-style passphrase:
 
 ```clojure
-(ns somemodule
-  (:require [secrets.core]
-            [secrets.strings]))
+(ns example.security)
+
+(use '[secrets.core :only [choice]])
+(use '[secrets.strings :only [ascii-letters digits]])
+(use '[clojure.string :only [join lower-case split-lines]])
 
 (def words
   "On standard Linux systems, use a convenient dictionary file.
   Other platforms may need to provide their own word-list."
   (-> (slurp "/usr/share/dict/words")
-      (clojure.string/split-lines)))
+      (split-lines)))
 
 (defn generate-passphrase [n]
-  (-> (clojure.string/join " " (repeat n (secrets.core/choice words)))
-      (clojure.string/lower-case)))
+  (-> (join " " (repeatedly n #(choice words)))
+      (lower-case)))
+```
+
+the result will be:
+
+```clojure
+example.security=> (generate-passphrase 5)
+"uniaxally intercarrier straddleback basihyoid unhusk"
 ```
 
 Generate a hard-to-guess temporary URL containing a security token suitable for password recovery applications:
 
 ```clojure
-(ns somemodule
-  (:require [secrets.core]))
+(ns example.security)
 
-(def url (str "https://mydomain.com/reset=" (secrets.core/token-urlsafe)))
+(use '[secrets.core :only [token-urlsafe]])
+
+(defn generate-reset-url [n]
+  (str "https://mydomain.com/reset=" (token-urlsafe n)))
+```
+
+the result will be:
+
+```clojure
+example.security=> (generate-reset-url 32)
+"https://mydomain.com/reset=3kOJuScK1mHyxXWnuMBAUQaIEdsBUluQBR-3Zlvv8XQ"
 ```
 
 ## License
