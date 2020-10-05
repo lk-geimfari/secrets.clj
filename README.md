@@ -84,8 +84,6 @@ Generate an XKCD-style passphrase:
 (use '[clojure.string :only [join lower-case split-lines]])
 
 (def words
-  "On standard Linux systems, use a convenient dictionary file.
-  Other platforms may need to provide their own word-list."
   (-> (slurp "/usr/share/dict/words")
       (split-lines)))
 
