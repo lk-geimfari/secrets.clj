@@ -10,6 +10,22 @@ as passwords, account authentication, security tokens, and related secrets.
 
 See [«Recipes and best practices»](#recipes-and-best-practices) for usage examples.
 
+## Installation
+
+**Leiningen/Boot**:
+
+Add the following dependency to your `project.clj` file:
+
+```
+[likid_geimfari/secrets "0.1.3"]
+```
+
+**Clojure CLI/deps.edn**:
+
+```
+likid_geimfari/secrets {:mvn/version "0.1.3"}
+```
+
 ## API
  
 ```clojure
