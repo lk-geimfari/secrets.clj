@@ -1,4 +1,4 @@
-(defproject likid_geimfari/secrets "0.1.3"
+(defproject likid_geimfari/secrets "0.2.0"
   :description "A Clojure library designed to generate secure random numbers for managing secrets"
   :scm {:name "git"
         :url "https://github.com/lk-geimfari/secrets.clj"}
