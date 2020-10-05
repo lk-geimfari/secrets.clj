@@ -89,8 +89,6 @@ Generate an eight-character alphanumeric password:
 
 ```
 
-the result will be:
-
 ```clojure
 example.security=> (generate-password 8)
 "7gHY2N4s"
@@ -118,8 +116,6 @@ Generate an [XKCD-style passphrase](https://xkcd.com/936/):
       (lower-case)))
 ```
 
-the result will be:
-
 ```clojure
 example.security=> (generate-passphrase 5)
 "uniaxally intercarrier straddleback basihyoid unhusk"
@@ -135,8 +131,6 @@ Generate a hard-to-guess temporary URL containing a security token suitable for 
 (defn generate-password-recovery-url [n]
   (str "https://mydomain.com/reset=" (token-urlsafe n)))
 ```
-
-the result will be:
 
 ```clojure
 example.security=> (generate-password-recovery-url 32)
