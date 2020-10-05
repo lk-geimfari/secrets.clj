@@ -111,14 +111,14 @@ Generate a hard-to-guess temporary URL containing a security token suitable for 
 
 (use '[secrets.core :only [token-urlsafe]])
 
-(defn generate-reset-url [n]
+(defn generate-password-recovery-url [n]
   (str "https://mydomain.com/reset=" (token-urlsafe n)))
 ```
 
 the result will be:
 
 ```clojure
-example.security=> (generate-reset-url 32)
+example.security=> (generate-password-recovery-url 32)
 "https://mydomain.com/reset=3kOJuScK1mHyxXWnuMBAUQaIEdsBUluQBR-3Zlvv8XQ"
 ```
 
