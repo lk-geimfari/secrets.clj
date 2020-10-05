@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/lk-geimfari/secrets.clj.svg?branch=master)](https://travis-ci.org/lk-geimfari/secrets.clj)
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
+[![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
 
 A Clojure library designed to generate secure random numbers for managing secrets. This project is a 
 Python's `secret` module implementation for Clojure, based on Java's standard library.
@@ -26,6 +27,10 @@ Add the following dependency to your `project.clj` file:
 ```
 likid_geimfari/secrets {:mvn/version "0.1.3"}
 ```
+
+## Documentation
+
+You can find the complete documentation on the [cljdoc](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT).
 
 ## API
  
