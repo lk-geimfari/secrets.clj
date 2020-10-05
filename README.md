@@ -73,8 +73,11 @@ example.security=> (generate-password 8)
 "7gHY2N4s"
 ```
 
+**Note**: Applications should not [store passwords in a recoverable format](http://cwe.mitre.org/data/definitions/257.html), 
+whether plain text or encrypted. They should be salted and hashed using a cryptographically-strong one-way (irreversible) hash function.
 
-Generate an XKCD-style passphrase:
+
+Generate an [XKCD-style passphrase](https://xkcd.com/936/):
 
 ```clojure
 (ns example.security)
