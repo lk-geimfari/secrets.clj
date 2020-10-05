@@ -32,3 +32,7 @@
   (let [chosen (choice numbers)]
     (is (and (>= chosen 8) (<= chosen 128)))
     (is (thrown? java.lang.Exception (choice [])))))
+
+(deftest unix-timestamp-test
+  (testing "Returns UNIX-timestamp")
+  (is (instance? java.lang.Long (unix-timestamp))))

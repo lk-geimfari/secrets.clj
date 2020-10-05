@@ -52,6 +52,9 @@ user=> (secrets.core/choice [8 16 32 64 128])
 
 user=> (secrets.core/uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
+
+user=> (secrets.core/unix-timestamp)
+1601927558
 ```
 
 There is a namespace `secrets.strings` with useful constants:

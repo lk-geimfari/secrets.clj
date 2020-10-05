@@ -59,3 +59,7 @@
   (when (empty? collection)
     (throw (Exception. "Cannot choose from an empty sequence")))
   (nth collection (randbelow (count collection))))
+
+(defn unix-timestamp []
+  "Returns a number of seconds from the Unix epoch of 1970-01-01T00:00:00Z"
+  (.getEpochSecond (java.time.Instant/now)))
