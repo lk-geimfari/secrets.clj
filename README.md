@@ -16,6 +16,52 @@ To include one of the above libraries, for example ring-core, add the following 
 [secrets "0.1.2"]
 ```
 
+## Recipes and best practices¶
+This section shows recipes and best practices for using secrets to manage a basic level of security.
+
+Generate an eight-character alphanumeric password:
+
+```clojure
+(ns security
+  (:require secrets.core :as secrets))
+
+(def alphabet (str ascii-letters digits))
+(def password (clojure.string/join ", " (for [_ (range 32)] (choice alphabet))))
+```
+Generate a ten-character alphanumeric password with at least one lowercase character, at least one uppercase 
+character, and at least three digits:
+
+```
+import string
+import secrets
+alphabet = string.ascii_letters + string.digits
+while True:
+    password = ''.join(secrets.choice(alphabet) for i in range(10))
+    if (any(c.islower() for c in password)
+            and any(c.isupper() for c in password)
+            and sum(c.isdigit() for c in password) >= 3):
+        break
+```
+
+
+Generate an XKCD-style passphrase:
+
+```
+import secrets
+# On standard Linux systems, use a convenient dictionary file.
+# Other platforms may need to provide their own word-list.
+with open('/usr/share/dict/words') as f:
+    words = [word.strip() for word in f]
+    password = ' '.join(secrets.choice(words) for i in range(4))
+```
+
+Generate a hard-to-guess temporary URL containing a security token suitable for password recovery applications:
+
+```
+import secrets
+url = 'https://mydomain.com/reset=' + secrets.token_urlsafe()
+```
+
 ## Usage
  
 ```clojure
