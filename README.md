@@ -17,7 +17,7 @@ See [«Recipes and best practices»](#recipes-and-best-practices) for usage exam
 
 Add the following dependency to your `project.clj` file:
 
-```
+```clojure
 [likid_geimfari/secrets "0.1.3"]
 ```
 
