@@ -8,6 +8,8 @@ Python's `secret` module implementation for Clojure, based on Java's standard li
 The secrets module is used for generating cryptographically strong random numbers suitable for managing data such 
 as passwords, account authentication, security tokens, and related secrets.
 
+See [«Recipes and best practices»](#recipes-and-best-practices) for usage examples.
+
 ## API
  
 ```clojure
