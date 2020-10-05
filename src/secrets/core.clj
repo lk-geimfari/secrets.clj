@@ -7,14 +7,6 @@
            [java.util UUID]
            [org.apache.commons.codec.binary Base64 Hex]))
 
-(def ascii-lowercase "abcdefghijklmnopqrstuvwxyz")
-(def ascii-uppercase "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-(def ascii-letters (str ascii-lowercase ascii-uppercase))
-(def digits "0123456789")
-(def hexdigits (str digits "abcdef" "ABCDEF"))
-(def octdigits "01234567")
-(def punctuation "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
-
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
   [nbytes]
