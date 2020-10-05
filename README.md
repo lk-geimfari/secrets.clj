@@ -1,4 +1,4 @@
-[![](.github/logo.png)](https://github.com/lk-geimfari/secrets.clj)
+[![](.github/logo-medium.png)](https://github.com/lk-geimfari/secrets.clj)
 
 [![Build Status](https://travis-ci.org/lk-geimfari/secrets.clj.svg?branch=master)](https://travis-ci.org/lk-geimfari/secrets.clj)
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
