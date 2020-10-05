@@ -4,11 +4,11 @@
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
 [![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
 
-A Clojure library designed to generate secure random numbers for managing secrets. This project is a 
-Python's `secret` module implementation for Clojure, based on Java's standard library.
+A [`secrets`](https://github.com/lk-geimfari/secrets.clj) library designed to generate cryptographically strong random numbers suitable for managing data such as passwords, 
+account authentication, security tokens, and related secrets.
 
-The secrets module is used for generating cryptographically strong random numbers suitable for managing data such 
-as passwords, account authentication, security tokens, and related secrets.
+The [`secrets`](https://github.com/lk-geimfari/secrets.clj) is an implementation of the [`secrets`](https://docs.python.org/3/library/secrets.html) 
+module from Python's standard library for Clojure.
 
 See [«Recipes and best practices»](#recipes-and-best-practices) for usage examples.
 
