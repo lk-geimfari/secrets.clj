@@ -1,6 +1,7 @@
 [![](.github/logo-medium.png)](https://github.com/lk-geimfari/secrets.clj)
 
 [![Build Status](https://travis-ci.org/lk-geimfari/secrets.clj.svg?branch=master)](https://travis-ci.org/lk-geimfari/secrets.clj)
+[![codecov](https://codecov.io/gh/lk-geimfari/secrets.clj/branch/master/graph/badge.svg?token=9JNVGO1MRX)](undefined)
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
 [![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
 
