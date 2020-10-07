@@ -108,7 +108,6 @@ Generate an [XKCD-style passphrase](https://xkcd.com/936/):
 (ns example.security)
 
 (use '[secrets.core :only [choice]])
-(use '[secrets.strings :only [ascii-letters digits]])
 (use '[clojure.string :only [join lower-case split-lines]])
 
 (def words
