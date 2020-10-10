@@ -28,6 +28,21 @@ Add the following dependency to your `project.clj` file:
 likid_geimfari/secrets {:mvn/version "0.2.0"}
 ```
 
+**Gradle**:
+```
+compile 'likid_geimfari:secrets:0.2.0'
+```
+
+**Maven**:
+
+```xml
+<dependency>
+  <groupId>likid_geimfari</groupId>
+  <artifactId>secrets</artifactId>
+  <version>0.2.0</version>
+</dependency>
+```
+
 ## Documentation
 
 You can find the complete documentation on the [cljdoc](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT).
