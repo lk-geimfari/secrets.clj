@@ -82,11 +82,10 @@ This section shows recipes and best practices for using secrets to manage a basi
 Generate an eight-character alphanumeric password:
 
 ```clojure
-(ns example.security)
-
-(use '[clojure.string :only [join]])
-(use '[secrets.core :only [choice]])
-(use '[secrets.strings :only [ascii-letters digits]])
+(ns example.security
+  (:use [clojure.string :only [join]]
+        [secrets.core :only [choice]]
+        [secrets.strings :only [ascii-letters digits]]))
 
 (defn generate-password [n]
   (join "" (repeatedly n #(choice (str ascii-letters digits)))))
@@ -105,10 +104,9 @@ whether plain text or encrypted. They should be salted and hashed using a crypto
 Generate an [XKCD-style passphrase](https://xkcd.com/936/):
 
 ```clojure
-(ns example.security)
-
-(use '[secrets.core :only [choice]])
-(use '[clojure.string :only [join lower-case split-lines]])
+(ns example.security
+  (:use [secrets.core :only [choice]]
+        [clojure.string :only [join lower-case split-lines]))
 
 (def words
   (-> (slurp "/usr/share/dict/words")
@@ -127,9 +125,8 @@ example.security=> (generate-passphrase 5)
 Generate a hard-to-guess temporary URL containing a security token suitable for password recovery applications:
 
 ```clojure
-(ns example.security)
-
-(use '[secrets.core :only [token-urlsafe]])
+(ns example.security
+  (:use [secrets.core :only [token-urlsafe]]))
 
 (defn generate-password-recovery-url [n]
   (str "https://mydomain.com/reset=" (token-urlsafe n)))
