@@ -10,7 +10,7 @@
   "Returns a random byte array of the specified size."
   [nbytes]
   (let [bytes (byte-array nbytes)]
-    (.nextBytes (java.security.SecureRandom.) bytes) bytes))
+    (.nextBytes (SecureRandom.) bytes) bytes))
 
 (defn token-bytes
   "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,
