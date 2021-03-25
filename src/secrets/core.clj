@@ -4,7 +4,9 @@
   and related secrets."
   (:require [clojure.string :as string])
   (:import [java.security SecureRandom]
-           [org.apache.commons.codec.binary Base64 Hex]))
+           [org.apache.commons.codec.binary Base64 Hex]
+           (java.time Instant)
+           (java.util UUID)))
 
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
@@ -50,8 +52,8 @@
 
 (defn unix-timestamp
   "Returns a number of seconds from the Unix epoch of 1970-01-01T00:00:00Z"
-  [] (.getEpochSecond (java.time.Instant/now)))
+  [] (.getEpochSecond (Instant/now)))
 
 (defn uuid4
   "Return UUID generated using a cryptographically strong pseudo random number generator."
-  [] (.toString (java.util.UUID/randomUUID)))
+  [] (.toString (UUID/randomUUID)))
