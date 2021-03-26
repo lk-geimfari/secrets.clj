@@ -3,10 +3,10 @@
   suitable for managing data such as passwords, account authentication, security tokens,
   and related secrets."
   (:require [clojure.string :as string])
-  (:import [java.security SecureRandom]
-           [org.apache.commons.codec.binary Base64 Hex]
+  (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.time Instant)
-           (java.util UUID)))
+           (java.util UUID)
+           (java.security SecureRandom)))
 
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
