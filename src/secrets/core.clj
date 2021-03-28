@@ -2,6 +2,8 @@
   "The secrets module is used for generating cryptographically strong random numbers
   suitable for managing data such as passwords, account authentication, security tokens,
   and related secrets."
+  {:author "Isaak Uchakaev"
+   :last-update-date "29-03-2021"}
   (:require [clojure.string :as string])
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.time Instant)
