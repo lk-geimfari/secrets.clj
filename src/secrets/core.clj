@@ -4,7 +4,7 @@
   and related secrets."
   {:author "Isaak Uchakaev"
    :last-update-date "29-03-2021"}
-  (:require [clojure.string :as string])
+  (:require [clojure.string])
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.time Instant)
            (java.util UUID)
@@ -37,7 +37,7 @@
    (-> (String.
         (Base64/encodeBase64
          (get-random-bytes nbytes)))
-       (string/escape {\+ "-" \/ "_" \= ""}))))
+       (clojure.string/escape {\+ "-" \/ "_" \= ""}))))
 
 (defn randbelow
   "Return a random int in the range [0, n)."
