@@ -50,6 +50,9 @@ user=> (secrets.core/randbelow 100)
 user=> (secrets.core/choice [8 16 32 64 128])
 8
 
+user=> (secrets.core/choices [8 16 32 64 128] 2)
+(128 16)
+
 user=> (secrets.core/uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
 
