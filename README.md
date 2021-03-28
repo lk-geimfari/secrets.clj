@@ -84,11 +84,11 @@ Generate an eight-character alphanumeric password:
 ```clojure
 (ns example.security
   (:use [clojure.string :only [join]]
-        [secrets.core :only [choice]]
+        [secrets.core]
         [secrets.strings :only [ascii-letters digits]]))
 
 (defn generate-password [n]
-  (join "" (repeatedly n #(choice (str ascii-letters digits)))))
+  (join "" (secrets.core/choices (str ascii-letters digits)) n))
 
 ```
 
@@ -105,7 +105,7 @@ Generate an [XKCD-style passphrase](https://xkcd.com/936/):
 
 ```clojure
 (ns example.security
-  (:use [secrets.core :only [choice]]
+  (:use [secrets.core]
         [clojure.string :only [join lower-case split-lines]))
 
 (def words
@@ -113,7 +113,7 @@ Generate an [XKCD-style passphrase](https://xkcd.com/936/):
       (split-lines)))
 
 (defn generate-passphrase [n]
-  (-> (join " " (repeatedly n #(choice words)))
+  (-> (join " " (secrets.core/choices words n))
       (lower-case)))
 ```
 
