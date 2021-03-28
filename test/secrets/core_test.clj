@@ -1,5 +1,6 @@
 (ns secrets.core-test
   (:require [clojure.test :refer [deftest, testing, is]]
+            [clojure.string :as string]
             [secrets.core :as core]))
 
 (deftest token-hex-test
@@ -9,6 +10,9 @@
 
 (deftest token-bytes-test
   (testing "Generate the random bytes"
+    (false? (string/includes? (core/token-bytes) "+"))
+    (false? (string/includes? (core/token-bytes) "/"))
+    (false? (string/includes? (core/token-bytes) "="))
     (is (= (count (core/token-bytes)) 32))
     (is (= (count (core/token-bytes 128)) 128))))
 

@@ -37,9 +37,7 @@
    (-> (String.
         (Base64/encodeBase64
          (get-random-bytes nbytes)))
-       (string/replace "+" "-")
-       (string/replace "/" "_")
-       (string/replace "=" ""))))
+       (string/escape {\+ "-" \/ "_" \= ""}))))
 
 (defn randbelow
   "Return a random int in the range [0, n)."
