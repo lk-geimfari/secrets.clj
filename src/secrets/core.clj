@@ -50,6 +50,12 @@
     (throw (Exception. "Cannot choose from an empty sequence")))
   (nth collection (randbelow (count collection))))
 
+(defn choices
+  "Return a k sized list of elements chosen from the population with replacement.
+  If the population is empty, raises an exception."
+  [population k]
+  (repeatedly k #(choice population)))
+
 (defn unix-timestamp
   "Returns a number of seconds from the Unix epoch of 1970-01-01T00:00:00Z"
   [] (.getEpochSecond (Instant/now)))

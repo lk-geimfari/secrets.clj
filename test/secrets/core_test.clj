@@ -36,6 +36,12 @@
     (is (and (>= chosen 8) (<= chosen 128)))
     (is (thrown? java.lang.Exception (core/choice [])))))
 
+(deftest choices-test
+  (testing "Choices a random elements of the collection")
+  (let [k 3 chosen (core/choices [8 16 32 64 128] k)]
+    (is (= (count chosen) k)))
+  (is (= () (core/choices [] 0))))
+
 (deftest unix-timestamp-test
   (testing "Returns UNIX-timestamp")
   (is (instance? java.lang.Long (core/unix-timestamp))))
