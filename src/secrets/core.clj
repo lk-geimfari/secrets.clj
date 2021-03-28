@@ -24,7 +24,7 @@
   "Return a random text string, in hexadecimal. The string has nbytes random bytes, each byte
   converted to two hex digits. If nbytes is nil or not supplied, a reasonable default is used (32)."
   ([] (token-hex 32))
-  ([nbytes] (String. (Hex/encodeHex ^bytes (get-random-bytes nbytes)))))
+  ([nbytes] (String. (Hex/encodeHex (get-random-bytes nbytes)))))
 
 (defn token-urlsafe
   "Return a random URL-safe text string, containing nbytes random bytes. The text is Base64 encoded,
