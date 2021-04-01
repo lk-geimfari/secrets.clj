@@ -53,29 +53,29 @@ user=> (secrets.core/choice [8 16 32 64 128])
 user=> (secrets.core/choices [8 16 32 64 128] 2)
 (128 16)
 
-user=> (secrets.core/uuid4)
+user=> (secrets.tools/uuid4)
 "84e9c5c0-ceb4-4aab-9a58-668f59b9a9e5"
 
-user=> (secrets.core/unix-timestamp)
+user=> (secrets.tools/unix-timestamp)
 1601927558
 ```
 
-There is a namespace `secrets.strings` with useful constants:
+There is a namespace `secrets.constants` with useful constants:
 
 ```clojure
-user=> secrets.strings/ascii-lowercase
+user=> secrets.constants/ascii-lowercase
 "abcdefghijklmnopqrstuvwxyz"
-user=> secrets.strings/ascii-uppercase
+user=> secrets.constants/ascii-uppercase
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-user=> secrets.strings/ascii-letters
+user=> secrets.constants/ascii-letters
 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-user=> secrets.strings/digits
+user=> secrets.constants/digits
 "0123456789"
-user=> secrets.strings/hexdigits
+user=> secrets.constants/hexdigits
 "0123456789abcdefABCDEF"
-user=> secrets.strings/octdigits
+user=> secrets.constants/octdigits
 "01234567"
-user=> secrets.strings/punctuation
+user=> secrets.constants/punctuation
 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 ```
 
@@ -87,8 +87,8 @@ Generate an eight-character alphanumeric password:
 ```clojure
 (ns example.security
   (:use [clojure.string :only [join]]
-        [secrets.core]
-        [secrets.strings :only [ascii-letters digits]]))
+    [secrets.core]
+    [secrets.constants :only [ascii-letters digits]]))
 
 (defn generate-password [n]
   (join "" (secrets.core/choices (str ascii-letters digits)) n))

@@ -6,8 +6,6 @@
    :last-update-date "29-03-2021"}
   (:require [clojure.string])
   (:import (org.apache.commons.codec.binary Base64 Hex)
-           (java.time Instant)
-           (java.util UUID)
            (java.security SecureRandom)))
 
 (defn- get-random-bytes
@@ -55,11 +53,3 @@
   If the population is empty, raises an exception."
   [population k]
   (repeatedly k #(choice population)))
-
-(defn unix-timestamp
-  "Returns a number of seconds from the Unix epoch of 1970-01-01T00:00:00Z"
-  [] (.getEpochSecond (Instant/now)))
-
-(defn uuid4
-  "Return UUID generated using a cryptographically strong pseudo random number generator."
-  [] (.toString (UUID/randomUUID)))

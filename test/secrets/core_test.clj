@@ -21,10 +21,6 @@
     (is (= (count (core/token-urlsafe)) 43))
     (is (= (count (core/token-urlsafe 16)) 22))))
 
-(deftest uuid4-test
-  (testing "Generate UUID4")
-  (is (= (count (core/uuid4)) 36)))
-
 (deftest randbelow-test
   (testing "Generate a random int in the range [0, n)")
   (let [number (core/randbelow 100)]
@@ -41,7 +37,3 @@
   (let [k 3 chosen (core/choices [8 16 32 64 128] k)]
     (is (= (count chosen) k)))
   (is (= () (core/choices [] 0))))
-
-(deftest unix-timestamp-test
-  (testing "Returns UNIX-timestamp")
-  (is (instance? java.lang.Long (core/unix-timestamp))))
