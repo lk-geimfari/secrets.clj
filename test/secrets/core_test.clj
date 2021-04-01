@@ -1,5 +1,5 @@
 (ns secrets.core-test
-  (:require [clojure.test :refer [deftest, testing, is]]
+  (:require [clojure.test :refer :all]
             [clojure.string :as string]
             [secrets.core :as core]))
 
@@ -30,7 +30,7 @@
   (testing "Choice a random element of coll")
   (let [chosen (core/choice [8 16 32 64 128])]
     (is (and (>= chosen 8) (<= chosen 128)))
-    (is (thrown? java.lang.Exception (core/choice [])))))
+    (is (thrown? Exception (core/choice [])))))
 
 (deftest choices-test
   (testing "Choices a random elements of the collection")
