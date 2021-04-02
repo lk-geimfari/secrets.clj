@@ -29,9 +29,3 @@ jobs:
           lein cljfmt check
           lein test
         shell: bash
-
-      - name: Run codecov
-        run: |
-          lein cloverage --codecov
-          bash <(curl -s https://codecov.io/bash)
-        shell: bash
