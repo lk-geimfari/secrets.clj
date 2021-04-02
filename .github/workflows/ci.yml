@@ -24,7 +24,7 @@ jobs:
         with:
           lein: 2.9.5
 
-      - name: Run tests
+      - name: Test
         run: |
           lein cljfmt check
           lein test
