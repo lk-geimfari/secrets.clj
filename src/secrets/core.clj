@@ -8,11 +8,13 @@
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.security SecureRandom)))
 
+(def ^:private secure-random (SecureRandom.))
+
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
   [nbytes]
   (let [bytes (byte-array nbytes)]
-    (.nextBytes (SecureRandom.) bytes) bytes))
+    (.nextBytes secure-random bytes) bytes))
 
 (defn token-bytes
   "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,
@@ -39,7 +41,7 @@
 
 (defn randbelow
   "Return a random int in the range [0, n)."
-  [n] (.nextInt (SecureRandom.) n))
+  [n] (.nextInt secure-random n))
 
 (defn choice
   "Return a randomly-chosen element from a non-empty coll."
