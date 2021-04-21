@@ -4,7 +4,7 @@
 
 (deftest uuid4-test
   (testing "Generate UUID4")
-  (is (= (count (secrets.tools/uuid4)) 36)))
+  (uuid? (secrets.tools/uuid4)))
 
 (deftest unix-timestamp-test
   (testing "Returns UNIX-timestamp")
