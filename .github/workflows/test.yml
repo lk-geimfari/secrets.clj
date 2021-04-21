@@ -6,7 +6,7 @@ jobs:
   clojure:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest, macos-latest]
         java: ['8', '11', '16']
 
     runs-on: ${{ matrix.os }}
@@ -15,12 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Prepare java
+      - name: Prepare Java
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
 
-      - name: Install clojure tools
+      - name: Install Clojure Tools
         uses: DeLaGuardo/setup-clojure@3.2
         with:
           lein: 2.9.5
