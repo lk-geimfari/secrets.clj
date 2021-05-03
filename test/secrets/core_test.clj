@@ -34,5 +34,5 @@
 (deftest choices-test
   (testing "Choices a random elements of the collection"
     (let [k 3 chosen (core/choices [8 16 32 64 128] k)]
-      (assert (= '() (core/choices [] 0)))
+      (assert (empty? (core/choices [] 0)))
       (assert (= (count chosen) k)))))
