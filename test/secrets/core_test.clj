@@ -1,5 +1,5 @@
 (ns secrets.core-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest testing is are]]
             [clojure.string :as str]
             [secrets.core :as core]))
 

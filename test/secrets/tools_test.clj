@@ -1,5 +1,5 @@
 (ns secrets.tools-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest testing]]
             [secrets.tools]))
 
 (deftest uuid4-test
