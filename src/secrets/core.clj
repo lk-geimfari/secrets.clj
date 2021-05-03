@@ -29,18 +29,14 @@
   The string has nbytes random bytes, each byte converted to two hex digits.
   If nbytes is nil or not supplied, a reasonable default is used (32)."
   ([] (token-hex 32))
-  ([nbytes] (String. (Hex/encodeHex (get-random-bytes nbytes)))))
+  ([nbytes] (Hex/encodeHexString (get-random-bytes nbytes))))
 
 (defn token-urlsafe
   "Return a random URL-safe text string, containing nbytes random bytes.
   The text is Base64 encoded, so on average each byte results in approximately 1.3 characters.
   If nbytes is nil or not supplied, a reasonable default is used (32)."
   ([] (token-urlsafe 32))
-  ([nbytes]
-   (-> (String.
-        (Base64/encodeBase64
-         (get-random-bytes nbytes)))
-       (clojure.string/escape {\+ "-" \/ "_" \= ""}))))
+  ([nbytes] (Base64/encodeBase64URLSafeString (get-random-bytes nbytes))))
 
 (defn randbelow
   "Return a random int in the range [0, n)."
