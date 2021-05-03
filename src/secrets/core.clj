@@ -19,21 +19,22 @@
     (.nextBytes secure-random bytes) bytes))
 
 (defn token-bytes
-  "Return a random byte string containing nbytes number of bytes. If nbytes is nil or not supplied,
-  a reasonable default is used."
+  "Return a random byte string containing nbytes number of bytes.
+  If nbytes is nil or not supplied, a reasonable default is used."
   ([] (get-random-bytes 32))
   ([nbytes] (get-random-bytes nbytes)))
 
 (defn token-hex
-  "Return a random text string, in hexadecimal. The string has nbytes random bytes, each byte
-  converted to two hex digits. If nbytes is nil or not supplied, a reasonable default is used (32)."
+  "Return a random text string, in hexadecimal.
+  The string has nbytes random bytes, each byte converted to two hex digits.
+  If nbytes is nil or not supplied, a reasonable default is used (32)."
   ([] (token-hex 32))
   ([nbytes] (String. (Hex/encodeHex (get-random-bytes nbytes)))))
 
 (defn token-urlsafe
-  "Return a random URL-safe text string, containing nbytes random bytes. The text is Base64 encoded,
-  so on average each byte results in approximately 1.3 characters. If nbytes is nil or not supplied,
-  a reasonable default is used (32)"
+  "Return a random URL-safe text string, containing nbytes random bytes.
+  The text is Base64 encoded, so on average each byte results in approximately 1.3 characters.
+  If nbytes is nil or not supplied, a reasonable default is used (32)."
   ([] (token-urlsafe 32))
   ([nbytes]
    (-> (String.
