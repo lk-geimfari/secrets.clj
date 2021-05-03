@@ -10,17 +10,15 @@
 
 (deftest token-bytes-test
   (testing "Generate the random bytes"
-    (are [s] (false? (str/includes? (core/token-bytes) s))
-      "+"
-      "/"
-      "=")
-    (assert (= (count (core/token-bytes)) 32))
-    (assert (= (count (core/token-bytes 128)) 128))))
+    (are [char] (false? (str/includes? (core/token-bytes) char)) "+" "/" "=")
+    (are [nbytes] (= (count (core/token-bytes nbytes)) nbytes) 8 64 256 1024)))
 
 (deftest token-urlsafe-test
   (testing "Generate a url-safe random string"
-    (assert (= (count (core/token-urlsafe)) 43))
-    (assert (= (count (core/token-urlsafe 16)) 22))))
+    (are [nbytes result] (= (count (core/token-urlsafe nbytes)) result)
+      32 43
+      64 86
+      16 22)))
 
 (deftest randbelow-test
   (testing "Generate a random int in the range [0, n)"
