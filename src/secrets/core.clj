@@ -8,7 +8,9 @@
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.security SecureRandom)))
 
-(def ^:private secure-random (SecureRandom.))
+(def ^:private secure-random
+  "Creates a secure random number generator (RNG)."
+  (SecureRandom.))
 
 (defn- get-random-bytes
   "Returns a random byte array of the specified size."
