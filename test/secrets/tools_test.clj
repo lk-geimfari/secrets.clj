@@ -8,4 +8,5 @@
 
 (deftest unix-timestamp-test
   (testing "Returns UNIX-timestamp"
+    (assert (int? (secrets.tools/unix-timestamp)))
     (assert (instance? Long (secrets.tools/unix-timestamp)))))
