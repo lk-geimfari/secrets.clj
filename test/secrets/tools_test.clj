@@ -1,10 +1,12 @@
 (ns secrets.tools-test
   (:require [clojure.test :refer [deftest testing]]
-            [secrets.tools]))
+            [secrets.tools])
+  (:import (java.util UUID)))
 
 (deftest uuid4-test
   (testing "Generate UUID4"
-    (uuid? (secrets.tools/uuid4))))
+    (assert ( = (count (secrets.tools/uuid4)) 36 ))
+    (assert (uuid? (UUID/fromString (secrets.tools/uuid4))))))
 
 (deftest unix-timestamp-test
   (testing "Returns UNIX-timestamp"

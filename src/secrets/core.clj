@@ -3,7 +3,7 @@
   suitable for managing data such as passwords, account authentication, security tokens,
   and related secrets."
   {:author "Isaak Uchakaev"
-   :last-update-date "19-10-2021"}
+   :last-update-date "01-11-2021"}
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.security SecureRandom)))
 
@@ -27,7 +27,7 @@
 (defn token-hex
   "Return a random text string, in hexadecimal.
   The string has nbytes random bytes, each byte converted to two hex digits.
-  If nbytes is nil or not supplied, a reasonable default is used ('default-nbytes')."
+  If nbytes is nil or not supplied, a reasonable default is used ('default-number-of-bytes')."
   ([] (token-hex default-number-of-bytes))
   ([nbytes]
    (-> nbytes
@@ -37,7 +37,7 @@
 (defn token-urlsafe
   "Return a random URL-safe text string, containing nbytes random bytes.
   The text is Base64 encoded, so on average each byte results in approximately 1.3 characters.
-  If nbytes is nil or not supplied, a reasonable default is used ('default-nbytes')."
+  If nbytes is nil or not supplied, a reasonable default is used ('default-number-of-bytes')."
   ([] (token-urlsafe default-number-of-bytes))
   ([nbytes]
    (-> nbytes
