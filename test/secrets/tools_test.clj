@@ -5,7 +5,7 @@
 
 (deftest uuid4-test
   (testing "Generate UUID4"
-    (assert ( = (count (secrets.tools/uuid4)) 36 ))
+    (assert (= (count (secrets.tools/uuid4)) 36))
     (assert (uuid? (UUID/fromString (secrets.tools/uuid4))))))
 
 (deftest unix-timestamp-test
