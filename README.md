@@ -54,15 +54,6 @@ user=> (secrets.tools/unix-timestamp)
 
 See [«Recipes and best practices»](#recipes-and-best-practices) for more usage examples.
 
-## How many bytes should tokens use?
-
-To be secure against brute-force attacks, tokens need to have sufficient randomness. 
-You can explicitly specify how much randomness is used for tokens by giving an int argument 
-to the various `token-*` functions.
-
-Otherwise, if no argument is provided the `token-*` functions will use a reasonable 
-default instead, namely — 32.
-
 ## Recipes and best practices
 This section shows recipes and best practices for using secrets to manage a basic level of security.
 
