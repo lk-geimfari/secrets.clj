@@ -1,7 +1,7 @@
 (ns secrets.tools
   "This module contains useful utilities for dealing with secrets."
   {:author "Isaak Uchakaev"
-   :last-update-date "01-11-2021"}
+   :last-update-date "01-01-2022"}
   (:require [clojure.string])
   (:import (java.time Instant)
            (java.util UUID)))
