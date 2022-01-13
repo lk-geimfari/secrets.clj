@@ -19,13 +19,13 @@ See [«Recipes and best practices»](#recipes-and-best-practices) for usage exam
 Add the following dependency to your `project.clj` file:
 
 ```clojure
-[likid_geimfari/secrets "1.0.0"]
+[likid_geimfari/secrets "1.1.1"]
 ```
 
 **Clojure CLI/deps.edn**:
 
 ```
-likid_geimfari/secrets {:mvn/version "1.0.0"}
+likid_geimfari/secrets {:mvn/version "1.1.1"}
 ```
 
 ## Documentation
