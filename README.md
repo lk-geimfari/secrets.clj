@@ -5,12 +5,10 @@
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
 [![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
 
-The [`secrets`](https://github.com/lk-geimfari/secrets.clj) is a library designed to generate cryptographically strong random numbers suitable for managing data such as passwords, account authentication, security tokens, and related secrets.
+The [`secrets.clj`](https://github.com/lk-geimfari/secrets.clj) is a library designed to generate cryptographically strong random numbers suitable for managing data such as passwords, account authentication, security tokens, and related secrets.
 
-The [`secrets`](https://github.com/lk-geimfari/secrets.clj) is an implementation of the [`secrets`](https://docs.python.org/3/library/secrets.html) 
+The `secrets.clj` is a port of the [`secrets`](https://docs.python.org/3/library/secrets.html) 
 module from Python's standard library for Clojure.
-
-See [«Recipes and best practices»](#recipes-and-best-practices) for usage examples.
 
 ## Installation
 
@@ -53,6 +51,8 @@ user=> (secrets.tools/uuid4)
 user=> (secrets.tools/unix-timestamp)
 1601927558
 ```
+
+See [«Recipes and best practices»](#recipes-and-best-practices) for more usage examples.
 
 ## How many bytes should tokens use?
 
