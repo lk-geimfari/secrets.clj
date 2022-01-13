@@ -22,17 +22,11 @@ Add the following dependency to your `project.clj` file:
 [likid_geimfari/secrets "1.1.1"]
 ```
 
-**Clojure CLI/deps.edn**:
-
-```
-likid_geimfari/secrets {:mvn/version "1.1.1"}
-```
-
 ## Documentation
 
 You can find the complete documentation on the [cljdoc](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT).
 
-## API
+## Usage examples
  
 ```clojure
 user=> (secrets.core/token-hex 32)
@@ -60,25 +54,6 @@ user=> (secrets.tools/unix-timestamp)
 1601927558
 ```
 
-There is a namespace `secrets.constants` with useful constants:
-
-```clojure
-user=> secrets.constants/ascii-lowercase
-"abcdefghijklmnopqrstuvwxyz"
-user=> secrets.constants/ascii-uppercase
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-user=> secrets.constants/ascii-letters
-"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-user=> secrets.constants/digits
-"0123456789"
-user=> secrets.constants/hexdigits
-"0123456789abcdefABCDEF"
-user=> secrets.constants/octdigits
-"01234567"
-user=> secrets.constants/punctuation
-"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-```
-
 ## How many bytes should tokens use?
 
 To be secure against brute-force attacks, tokens need to have sufficient randomness. 
@@ -87,7 +62,6 @@ to the various `token-*` functions.
 
 Otherwise, if no argument is provided the `token-*` functions will use a reasonable 
 default instead, namely — 32.
-
 
 ## Recipes and best practices
 This section shows recipes and best practices for using secrets to manage a basic level of security.
@@ -102,7 +76,6 @@ Generate an eight-character alphanumeric password:
 
 (defn generate-password [n]
   (join "" (secrets.core/choices (str ascii-letters digits)) n))
-
 ```
 
 ```clojure
