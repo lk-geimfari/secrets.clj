@@ -5,8 +5,7 @@
   :url "https://github.com/lk-geimfari/secrets.clj"
   :license {:name "MIT License"}
   :plugins [[lein-cljfmt "0.6.8"] [lein-cloverage "1.1.2"]]
-  :dependencies [[org.clojure/clojure "1.10.1"]
-                 [commons-codec "1.6"]]
+  :dependencies [[org.clojure/clojure "1.10.3"] [commons-codec/commons-codec "1.9"]]
   :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
                                     :username :env/clojars_username
                                     :password :env/clojars_password
