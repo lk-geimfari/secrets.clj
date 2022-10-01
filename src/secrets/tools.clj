@@ -12,4 +12,4 @@
 
 (defn uuid4
   "Return UUID generated using a cryptographically strong pseudo random number generator."
-  [] (.toString (UUID/randomUUID)))
+  [] (str (UUID/randomUUID)))
