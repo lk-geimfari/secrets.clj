@@ -117,8 +117,5 @@ example.security=> (generate-password-recovery-url 32)
 "https://mydomain.com/reset=3kOJuScK1mHyxXWnuMBAUQaIEdsBUluQBR-3Zlvv8XQ"
 ```
 
-## Why?
-Because.
-
 ## License
 MIT License. See [LICENSE](LICENSE) for more information.
