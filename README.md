@@ -23,6 +23,12 @@ Add the following dependency to your `project.clj` file:
 [likid_geimfari/secrets "1.1.1"]
 ```
 
+**Clojure CLI/deps.edn**:
+
+```clojure
+likid_geimfari/secrets {:mvn/version "1.1.1"}
+```
+
 ## Documentation
 
 You can find the complete documentation on the [cljdoc](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT).
