@@ -3,7 +3,7 @@
   suitable for managing data such as passwords, account authentication, security tokens,
   and related secrets."
   {:author "Isaak Uchakaev"
-   :last-update-date "01-01-2022"}
+   :last-update-date "04-10-2022"}
   (:import (org.apache.commons.codec.binary Base64 Hex)
            (java.security SecureRandom)))
 
@@ -52,11 +52,15 @@
   "Return a randomly-chosen element from a non-empty coll."
   [collection]
   (when (empty? collection)
-    (throw (Exception. "Cannot choose from an empty sequence")))
+    (throw (AssertionError. "Cannot choose from an empty sequence")))
   (nth collection (randbelow (count collection))))
 
 (defn choices
   "Return a k sized list of elements chosen from the population with replacement.
   If the population is empty, raises an exception."
   [population k]
+  (when (<= k 0)
+    (throw (AssertionError. (str "k must be >= 0, not " k))))
+  (when (empty? population)
+    (throw (AssertionError. "Cannot choose from an empty sequence")))
   (repeatedly k #(choice population)))

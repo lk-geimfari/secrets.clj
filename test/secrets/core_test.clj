@@ -29,10 +29,13 @@
   (testing "Choice a random element of coll"
     (let [chosen (core/choice [8 16 32 64 128])]
       (assert (and (>= chosen 8) (<= chosen 128)))
-      (is (thrown? Exception (core/choice []))))))
+      (is (thrown? AssertionError (core/choice []))))))
 
 (deftest choices-test
   (testing "Choices a random elements of the collection"
     (let [k 3 chosen (core/choices [8 16 32 64 128] k)]
-      (assert (empty? (core/choices [] 0)))
-      (assert (= (count chosen) k)))))
+      (assert (= (count chosen) k)))
+    (assert (is (thrown? AssertionError (core/choices [] 1))))
+    (assert (is (thrown? AssertionError (core/choices [] 0))))
+    (assert (is (thrown? AssertionError (core/choices ["a" "b" "c"] 0))))
+    (assert (is (thrown? AssertionError (core/choices ["a" "b" "c"] -1))))))

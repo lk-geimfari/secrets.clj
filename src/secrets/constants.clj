@@ -1,7 +1,7 @@
 (ns secrets.constants
   "This module contains useful constants for dealing with secrets."
   {:author "Isaak Uchakaev"
-   :last-update-date "01-01-2022"})
+   :last-update-date "04-10-2022"})
 
 (def digits "0123456789")
 (def octdigits "01234567")
