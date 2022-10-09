@@ -10,6 +10,7 @@ module from Python's standard library for Clojure.
 
 [![test](https://github.com/lk-geimfari/secrets.clj/actions/workflows/test.yml/badge.svg)](https://github.com/lk-geimfari/secrets.clj/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/lk-geimfari/secrets.clj/branch/master/graph/badge.svg)](https://codecov.io/gh/lk-geimfari/secrets.clj)
+[![CodeFactor](https://www.codefactor.io/repository/github/lk-geimfari/secrets.clj/badge)](https://www.codefactor.io/repository/github/lk-geimfari/secrets.clj)
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
 [![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
 
