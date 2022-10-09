@@ -16,9 +16,9 @@ module from Python's standard library for Clojure.
 
 ## Installation
 
-**Leiningen/Boot**:
-
 Add the following dependency to your `project.clj` file:
+
+**Leiningen/Boot**:
 
 ```clojure
 [likid_geimfari/secrets "2.1.0"]
