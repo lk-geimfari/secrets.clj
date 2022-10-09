@@ -20,13 +20,13 @@ module from Python's standard library for Clojure.
 Add the following dependency to your `project.clj` file:
 
 ```clojure
-[likid_geimfari/secrets "2.0.0"]
+[likid_geimfari/secrets "2.1.0"]
 ```
 
 **Clojure CLI/deps.edn**:
 
 ```clojure
-likid_geimfari/secrets {:mvn/version "2.0.0"}
+likid_geimfari/secrets {:mvn/version "2.1.0"}
 ```
 
 ## Documentation
@@ -47,6 +47,9 @@ user=> (secrets.core/token-bytes 16)
 
 user=> (secrets.core/randbelow 100)
 71
+
+user=> (secrets.core/randbits 32)
+1530556122
 
 user=> (secrets.core/choice [8 16 32 64 128])
 8

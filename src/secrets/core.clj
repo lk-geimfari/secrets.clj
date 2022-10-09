@@ -3,8 +3,9 @@
   suitable for managing data such as passwords, account authentication, security tokens,
   and related secrets."
   {:author "Isaak Uchakaev"
-   :last-update-date "04-10-2022"}
+   :last-update-date "09-10-2022"}
   (:import (org.apache.commons.codec.binary Base64 Hex)
+           (java.math BigInteger)
            (java.security SecureRandom)))
 
 (def ^:private default-number-of-bytes 32)
@@ -43,6 +44,12 @@
    (-> nbytes
        (get-random-bytes)
        (Base64/encodeBase64URLSafeString))))
+
+(defn randbits
+  "Returns a random integer with k random bits."
+  {:added "2.1.0"}
+  [k]
+  (BigInteger. k secure-random))
 
 (defn randbelow
   "Return a random int in the range [0, n)."

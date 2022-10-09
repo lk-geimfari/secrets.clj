@@ -20,6 +20,12 @@
       64 86
       16 22)))
 
+(deftest randbits-test
+  (testing "Generate a random integer with k random bits"
+    (are [k] (>= (core/randbits k) 0) 8 16 32 64 128 256 512)
+    (assert (= (core/randbits 0) 0))
+    (assert (instance? BigInteger (core/randbits 32)))))
+
 (deftest randbelow-test
   (testing "Generate a random int in the range [0, n)"
     (let [number (core/randbelow 100)]
