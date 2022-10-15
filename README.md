@@ -21,13 +21,13 @@ Add the following dependency to your `project.clj` file:
 **Leiningen/Boot**:
 
 ```clojure
-[likid_geimfari/secrets "2.1.0"]
+[likid_geimfari/secrets "2.1.1"]
 ```
 
 **Clojure CLI/deps.edn**:
 
 ```clojure
-likid_geimfari/secrets {:mvn/version "2.1.0"}
+likid_geimfari/secrets {:mvn/version "2.1.1"}
 ```
 
 ## Documentation
