@@ -9,7 +9,7 @@
            (java.security SecureRandom)))
 
 (def ^:private default-number-of-bytes 32)
-(def ^:private secure-random
+(def secure-random
   "Creates a secure random number generator (RNG)."
   (SecureRandom.))
 
