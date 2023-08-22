@@ -1,4 +1,6 @@
-[![](.github/logo.png)](https://github.com/lk-geimfari/secrets.clj)
+<p align="center">
+  <img width="500" height="auto" src=".github/logo.png">
+</p>
 
 A library designed to generate cryptographically strong random numbers suitable for managing data such as passwords, account authentication, security tokens, and related secrets.
 
