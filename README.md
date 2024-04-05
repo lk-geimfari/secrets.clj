@@ -15,6 +15,8 @@ module from Python's standard library for Clojure.
 [![CodeFactor](https://www.codefactor.io/repository/github/lk-geimfari/secrets.clj/badge)](https://www.codefactor.io/repository/github/lk-geimfari/secrets.clj)
 [![Clojars Version](https://img.shields.io/clojars/v/likid_geimfari/secrets?color=brightgreen)](https://clojars.org/likid_geimfari/secrets)
 [![Cljdoc Badge](https://cljdoc.org/badge/likid_geimfari/secrets)](https://cljdoc.org/d/likid_geimfari/secrets/CURRENT)
+![Clojars Downloads](https://img.shields.io/clojars/dt/likid_geimfari%2Fsecrets)
+
 
 ## Installation
 
